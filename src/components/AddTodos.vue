@@ -1,21 +1,20 @@
 <template>
-  <form @submit.prevent="onSubmit()" class="max-w-sm mx-auto my-5 bg-[#94a3b8] px-5 py-4 rounded overflow-hidden shadow-2xl">
+  <form @submit.prevent="onSubmit()" class="max-w-sm mx-auto my-5 bg-[#d2dae6] px-5 py-4 rounded overflow-hidden shadow-2xl">
     <div>
       <h1 class="text-xl font-extrabold">My Todos</h1>
       <p class="ptag">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit similique
-        veritatis ullam nesciunt eligendi commodi magnam architecto quibusdam
-        aliquam ut quo iste incidunt consequatur facilis ducimus, natus
-        temporibus dolores totam.z
+        A list of things that one wants to get done or that need to get done 😃 
       </p>
       <label
         for="base-input"
-        class="block mb-2 text-bg font-medium text-gray-900 dark:text-gray-300"
+        class="block mb-2 text-xl font-medium text-gray-900 dark:text-gray-300"
         >Title</label
       >
       <input
         type="text"
+        placeholder="Todos Title..."
         v-model="title"
+        
         @change="todoTextChange"
         id="base-input"
         class="
@@ -43,11 +42,12 @@
     <div>
       <label
         for="small-input"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        class="block mb-2 text-xl font-medium text-gray-900 dark:text-gray-300"
         >Description</label
       >
       <input
         type="text"
+        placeholder="Enter description Here..."
         v-model="desc"
         id="small-input"
         class="

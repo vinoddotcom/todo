@@ -1,19 +1,23 @@
 <template>
-  <nav>
-    <router-link to="/">Todo</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-   
+<div class="flex flex-col min-h-screen justify-between">
 
+
+   
+<navbar-comp/>
   
   <router-view/>
+  <footer-comp/>
+</div>
 </template>
 <script>
+// import FooterComp from "./components/FooterComp.vue";
+import FooterComp from "./components/FooterComp.vue";
+import NavbarComp from "./components/NavbarComp.vue";
 
 
 
 export default{
-   
+    components: { FooterComp, NavbarComp }
 }
 
 </script>
@@ -28,7 +32,7 @@ export default{
   
 }
 body{
-  background-color:#d3d3d37a;
+  background-color:#decdcd7a;
 }
 
 nav {

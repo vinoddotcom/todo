@@ -1,42 +1,78 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <div class="max-w-sm w-full lg:max-w-full lg:flex">
-  <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('/img/card-left.jpg')" title="Woman holding a mug">
-  </div>
-  <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-    <div class="mb-8">
-      <p class="text-sm text-gray-600 flex items-center">
-        <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-        </svg>
-        Members only
-      </p>
-      <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-      <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
-    </div>
-    <div class="flex items-center">
-      <img class="w-10 h-10 rounded-full mr-4" src="/img/jonathan.jpg" alt="Avatar of Jonathan Reinink">
-      <div class="text-sm">
-        <p class="text-gray-900 leading-none">Jonathan Reinink</p>
-        <p class="text-gray-600">Aug 18</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
-  <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-    <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-    </p>
-  </div>
-  <div class="px-6 pt-4 pb-2">
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-  </div>
-</div>
-  </div>
+ <!-- component -->
+<!-- This is an example component -->
+ <div class="font-sans">
+            <div class="relative flex flex-col sm:justify-center items-center overflow-hidden mx-5">
+                <div class="relative sm:max-w-sm w-full">
+                    <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+                    <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+                    <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                        <label for="" class="block mt-3 text-3xl text-gray-700 text-center font-semibold">
+                            Login
+                        </label>
+                        <form method="#" action="#" class="mt-10">
+                                           
+                            <div>
+                                <input type="email" placeholder="Enter Your Email" class="mt-1 px-4  block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+                            </div>
+                
+                            <div class="mt-7">                
+                                <input type="password" placeholder="Enter Your Password" class="mt-1 px-4 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">                           
+                            </div>
+
+                            <div class="mt-7 flex">
+                                <label for="remember_me" class="inline-flex items-center w-full cursor-pointer">
+                                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                                    <span class="ml-2 text-sm text-gray-600">
+                                        Remember Me
+                                    </span>
+                                </label>
+                
+                               <div class="w-full text-right">     
+                                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="#">
+                                        forgot your password?
+                                    </a>                                  
+                               </div>
+                            </div>
+                
+                            <div class="mt-7">
+                                <button class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    Login
+                                </button>
+                            </div>
+                
+                            <div class="flex mt-7 items-center text-center">
+                                <hr class="border-gray-300 border-1 w-full rounded-md">
+                                <label class="block font-medium text-sm text-gray-600 w-full">
+                                   Login with
+                                </label>
+                                <hr class="border-gray-300 border-1 w-full rounded-md">
+                            </div>
+                
+                            <div class="flex mt-7 justify-center w-full">
+                                <button class="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    
+                                    Facebook
+                                </button>
+                
+                                <button class="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    
+                                    Google
+                                </button>
+                            </div>
+                
+                             <div class="mt-7">
+                                <div class="flex justify-center items-center">
+                                    <label class="mr-2" >New Here?</label>
+                                    <a href="/signup" class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                        Create an Account
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 </template>
