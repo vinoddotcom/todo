@@ -135,7 +135,7 @@ export default {
   components: { AddTodos },
 
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo"]),
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "editTodo"]),
     todoTitleChange(e) {
       this.todoTitleText = e.target.value;
     },
