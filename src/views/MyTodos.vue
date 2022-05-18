@@ -24,9 +24,27 @@ export default {
   components: { AddTodos, SingleTodo },
 
   methods: {
-    ...mapActions(["getTodos"]),
-    
-    
+
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "editTodo"]),
+    todoTitleChange(e) {
+      this.todoTitleText = e.target.value;
+    },
+    todoDescChange(e) {
+      this.todoDescText = e.target.value;
+    },
+
+    editTodo(todo) {
+      this.editing = this.editing == true ? false : true;
+      if (this.editing) {
+        this.todoDescText = todo.description;
+        this.todoTitleText = todo.title;
+        this.updateTodo(todo);
+      } else {
+        todo.description = this.todoDescText;
+        todo.title = this.todoTitleText;
+      }
+    },
+
   },
   computed: mapGetters(["allTodos"]),
   mounted() {
