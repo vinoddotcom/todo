@@ -19,7 +19,7 @@ const actions = {
   async deleteTodo({ commit }, id) {
     commit("removeTodo", id);
     await axios.delete(`http://localhost:3000/todos/${id}`);
-  
+
 
     
   },
