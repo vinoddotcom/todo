@@ -19,13 +19,14 @@ const actions = {
   async deleteTodo({ commit }, id) {
     commit("removeTodo", id);
     await axios.delete(`http://localhost:3000/todos/${id}`);
+  
 
     
   },
   async updateTodo({ commit }, todo) {
     commit("editingTodo", todo);
    await axios.put(`http://localhost:3000/todos/${todo.id}`,todo);
-    
+  
   },
 };
 const mutations = {
