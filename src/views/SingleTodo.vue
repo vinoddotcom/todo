@@ -12,7 +12,7 @@
       <span v-if="editing">
         <input
           @change="todoTitleChange"
-          :value="todoTitleText"
+          v-model="todoTitleText"
           type="text"
           class="
             block
@@ -39,7 +39,7 @@
       <span v-if="editing">
         <input
           @change="todoDescChange"
-          :value="todoDescText"
+          v-model="todoDescText"
           type="text"
           class="
             block
@@ -66,6 +66,7 @@
       <span
         ><button
           @click="onEditTodo(todo)"
+          v-if="!(editing)"
           class="
             inline-block
             px-6
@@ -85,13 +86,37 @@
             ease-in-out
           "
         >
-          {{ editing ? "update" : "Edit" }}
+          {{ "Edit" }}
+        </button>
+        <button
+          @click="onUpdateTodo"
+          v-else
+          class="
+            inline-block
+            px-6
+            py-2
+            ml-3
+            border-2 border-gray-800
+            text-gray-800
+            font-medium
+            text-xs
+            leading-tight
+            uppercase
+            rounded
+            hover:bg-black hover:bg-opacity-5
+            focus:outline-none focus:ring-0
+            transition
+            duration-150
+            ease-in-out
+          "
+        >
+          {{"update" }}
         </button></span
       >
 
       <span
         ><button
-          @click="deleteTodo(todo)"
+          @click="deleteTodo(props.id)"
           class="
             btn
             bg-red-500
@@ -111,24 +136,49 @@
 </template>
 
 <script setup>
+//import store from "@/store";
 import { defineProps, ref } from "vue";
+import { useStore } from 'vuex'
 //const emit = defineEmits(["editTodo", "submit"]);
+const store = useStore()
+const props = defineProps(["id", "title", "description", 'todo']);
 
-const props = defineProps(["id", "title", "description"]);
 let editing = ref(false);
-let todoDescText = ref("");
+let todoDescText = ref(""); 
 let todoTitleText = ref("");
-const onEditTodo = (todo) => {
+const onEditTodo = () => {
       editing.value = editing.value == true ? false : true;
       if (editing.value) {
-        todoDescText = todo.description;
-        todoTitleText = todo.title;
-        this.updateTodo(todo);
-      } else {
-        todo.description = this.todoDescText;
-        todo.title = this.todoTitleText;
+        todoDescText.value = props.description
+        todoTitleText.value = props.title
+      }else {
+       //
       }
+
+      // if (editing.value) {
+      //   todoDescText = todo.description;
+      //   todoTitleText = todo.title;
+      //   store.updateTodo(todo);
+      // } else {
+      //   todo.description = this.todoDescText;
+      //   todo.title = this.todoTitleText;
+      // }
 };
+
+const onUpdateTodo = () =>{
+  editing.value = editing.value == true ? false : true;
+  let todo1 = {
+          id: props.id,
+          title: todoTitleText.value,
+          description: todoDescText.value
+        }
+         store.dispatch('updateTodo', todo1)
+}
+const deleteTodo = (id) => {
+store.dispatch('deleteTodo', id)
+}
+
+
 </script>
 
 <style setup>
