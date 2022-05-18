@@ -2,7 +2,7 @@
   <AddTodos />
   <div class="todos my-4">
     <ul class="todos-list">
-      <SingleTodo v-for="todo in allTodos" :key="todo.id"  :id="todo.id" :title="todo.title" :description="todo.description"></SingleTodo>
+      <SingleTodo v-for="(todo ,index) in allTodos" :index = "index+1" :todo="todo" :key="todo.id"></SingleTodo>
     </ul>
   </div>
 </template>
@@ -24,25 +24,9 @@ export default {
   components: { AddTodos, SingleTodo },
 
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo"]),
-    todoTitleChange(e) {
-      this.todoTitleText = e.target.value;
-    },
-    todoDescChange(e) {
-      this.todoDescText = e.target.value;
-    },
-
-    editTodo(todo) {
-      this.editing = this.editing == true ? false : true;
-      if (this.editing) {
-        this.todoDescText = todo.description;
-        this.todoTitleText = todo.title;
-        this.updateTodo(todo);
-      } else {
-        todo.description = this.todoDescText;
-        todo.title = this.todoTitleText;
-      }
-    },
+    ...mapActions(["getTodos"]),
+    
+    
   },
   computed: mapGetters(["allTodos"]),
   mounted() {

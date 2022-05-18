@@ -1,12 +1,12 @@
 <template>
   <li class="max-w-sm mx-auto my-5 rounded overflow-hidden shadow-lg">
-    <span class="text-xl">{{ props.id }}-</span
+    <span class="text-xl">{{ props.index}}-</span
     ><span v-if="!editing" class="text-2xl font-bold uppercase">{{
-      props.title
+      props.todo.title
     }}</span>
     <div>
       <span v-if="!editing" class="text-bg normal-case">{{
-        props.description
+        props.todo.description
       }}</span>
 
       <span v-if="editing">
@@ -65,7 +65,7 @@
 
       <span
         ><button
-          @click="onEditTodo(todo)"
+          @click="onEditTodo(props.todo)"
           v-if="!(editing)"
           class="
             inline-block
@@ -116,7 +116,7 @@
 
       <span
         ><button
-          @click="deleteTodo(props.id)"
+          @click="deleteTodo(props.todo.id)"
           class="
             btn
             bg-red-500
@@ -141,7 +141,7 @@ import { defineProps, ref } from "vue";
 import { useStore } from 'vuex'
 //const emit = defineEmits(["editTodo", "submit"]);
 const store = useStore()
-const props = defineProps(["id", "title", "description", 'todo']);
+const props = defineProps(['todo', 'index']);
 
 let editing = ref(false);
 let todoDescText = ref(""); 
@@ -149,26 +149,15 @@ let todoTitleText = ref("");
 const onEditTodo = () => {
       editing.value = editing.value == true ? false : true;
       if (editing.value) {
-        todoDescText.value = props.description
-        todoTitleText.value = props.title
-      }else {
-       //
+        todoDescText.value = props.todo.description
+        todoTitleText.value = props.todo.title
       }
-
-      // if (editing.value) {
-      //   todoDescText = todo.description;
-      //   todoTitleText = todo.title;
-      //   store.updateTodo(todo);
-      // } else {
-      //   todo.description = this.todoDescText;
-      //   todo.title = this.todoTitleText;
-      // }
-};
+}
 
 const onUpdateTodo = () =>{
   editing.value = editing.value == true ? false : true;
   let todo1 = {
-          id: props.id,
+          id: props.todo.id,
           title: todoTitleText.value,
           description: todoDescText.value
         }

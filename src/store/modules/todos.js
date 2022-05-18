@@ -17,13 +17,15 @@ const actions = {
     commit("newTodo", res.data);
   },
   async deleteTodo({ commit }, id) {
+    commit("removeTodo", id);
     await axios.delete(`http://localhost:3000/todos/${id}`);
 
-    commit("removeTodo", id);
+    
   },
   async updateTodo({ commit }, todo) {
-   await axios.put(`http://localhost:3000/todos/${todo.id}`,todo);
     commit("editingTodo", todo);
+   await axios.put(`http://localhost:3000/todos/${todo.id}`,todo);
+    
   },
 };
 const mutations = {
@@ -35,9 +37,9 @@ const mutations = {
   editingTodo:(state,todo)=>{
     console.log(todo);
     let index = state.todos.findIndex(t=>t.id==todo.id)
-     console.log(index);
+    // console.log(index);
      state.todos[index] = todo
-    console.log(state.todos)
+    //console.log(state.todos)
   },
 
   
